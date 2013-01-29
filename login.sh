@@ -2,6 +2,11 @@
 
 ROOT=`dirname $0`/root
 
+${PWD##*/}
+
+CHROOT_BASENAME=`dirname $0`
+CHROOT_BASENAME=${CHROOT_BASENAME##*/}
+
 function do_bind() {
     DIR=$1
     P=$ROOT$DIR
@@ -59,7 +64,7 @@ do_bind /dev
 # do_bind_ro /home
 
 if [ "$#" == "0" ]; then
-    PS1='\[\e[1;31m\][CHROOT:\u@\h \W]\$\[\e[0m\] ' chroot $ROOT /bin/bash
+    debian_chroot="CHRT:$CHROOT_BASENAME" PS1='\[\e[1;31m\][CHROOT:\u@\h \W]\$\[\e[0m\] ' chroot $ROOT /bin/bash
 else
     chroot $ROOT $@
 fi
