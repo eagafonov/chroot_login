@@ -16,7 +16,7 @@ function do_bind() {
     if [ "$c" != "0" ]; then
         echo "I: $DIR already mounted"
     else
-        echo mount -o bind  $MOUNT_ARGS $DIR $P
+        mount -o bind  $MOUNT_ARGS $DIR $P
 
         mount_status=$?
 
