@@ -2,8 +2,6 @@
 
 ROOT=`dirname $0`/root
 
-${PWD##*/}
-
 CHROOT_BASENAME=`dirname $0`
 CHROOT_BASENAME=${CHROOT_BASENAME##*/}
 
