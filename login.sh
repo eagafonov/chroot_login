@@ -60,9 +60,10 @@ do_bind /proc
 do_bind /dev
 
 # do_bind_ro /home
+CHROOT_BASENAME_LABEL=`basename $CHROOT_BASENAME`
 
 if [ "$#" == "0" ]; then
-    debian_chroot="CHRT:$CHROOT_BASENAME" PS1='\[\e[1;31m\][CHROOT:\u@\h \W]\$\[\e[0m\] ' chroot $ROOT /bin/bash
+    debian_chroot="CHRT:$CHROOT_BASENAME_LABEL" PS1='\[\e[1;31m\][CHROOT:\u@\h \W]\$\[\e[0m\] ' chroot $ROOT /bin/bash
 else
     chroot $ROOT $@
 fi
