@@ -3,7 +3,7 @@
 ROOT=`dirname $0`/root
 
 CHROOT_BASENAME=`dirname $0`
-CHROOT_BASENAME=${CHROOT_BASENAME##*/}
+CHROOT_BASENAME=`readlink -m ${CHROOT_BASENAME}`
 
 function do_bind() {
     DIR=$1
